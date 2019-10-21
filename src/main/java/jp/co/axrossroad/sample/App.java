@@ -37,6 +37,8 @@ public class App {
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
         userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "StringStringStringStringString", "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ", "String processes", "N",
+                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
         userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd,j,j,j,j", "q,w,w,w"));
         userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
@@ -79,28 +81,23 @@ public class App {
     }
 
     for (int i = 0; i < userProjectDtoList.size(); i++) {
-        System.out.println(i);
         UserProject userProjectDto = userProjectDtoList.get(i);
 
         //PDFファイルでページを作って、ナビゲートする
 
         String[] platformsSize = userProjectDto.getDescription().split("\n");
         int projectsSize = platformsSize.length;
-        System.out.println("-----------"+projectsSize);
         for (int j = 0; j < platformsSize.length; j++) {
-            if (platformsSize[j].length() > 19) {
-                int t = platformsSize[j].length() / 19;
+            if (platformsSize[j].length() > 20) {
+                int t = platformsSize[j].length() / 20;
                 projectsSize += t;
-                System.out.println("-----------"+projectsSize);
             }
         }
 
         if (userProjectDto.getLanguages().split(",").length - 1 > projectsSize) {
             projectsSize = userProjectDto.getLanguages().split(",").length - 1;
-            System.out.println("-----------"+projectsSize);
         }
         if (userProjectDto.getPlatforms().split(",").length - 1 > projectsSize) {
-            System.out.println("-----------"+projectsSize);
             projectsSize = userProjectDto.getPlatforms().split(",").length - 1;
         }
         if (projectsSize > 4) {
@@ -132,8 +129,6 @@ public class App {
         System.out.println(userProjectDto.getTitle());*/
         //---ページをナビゲート
         row = myExcelSheet.getRowByIndex(getRow);
-
-        System.out.println("-----------");
 
         row.getCellByIndex(0).setStringValue(String.valueOf(i + 1));
         row.getCellByIndex(47).setStringValue((userProjectDto.getStartedAt() + "/01").replaceAll("/", "-"));
@@ -186,8 +181,7 @@ public class App {
         //myExcelSheet.getRowByIndex(getRow + 1).getCellByIndex(5).setFormula("=JIS("+userProjectDto.getDescription()+")");
         getRow += 4;
         if (projectsSize > 4) {
-            System.out.println("-----------ww" + getRow);
-            myExcelSheet.getRowByIndex(getRow - 1).setHeight((projectsSize - 3) * 3.75, false);
+            myExcelSheet.getRowByIndex(getRow - 2).setHeight((projectsSize-3)*3.75, false);
         }
 
         if (i == userProjectDtoList.size() - 1) {
