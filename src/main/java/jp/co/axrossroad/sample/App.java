@@ -77,122 +77,127 @@ public class App {
         int addRowSumm = 0;
 
         if (userProjectDtoList.size() == 0) {
+            myExcelSheet.removeRowsByIndex(getRow, 60);
+    }
+
+    for (int i = 0; i < userProjectDtoList.size(); i++) {
+        System.out.println(i);
+        UserProject userProjectDto = userProjectDtoList.get(i);
+
+        //PDFファイルでページを作って、ナビゲートする
+
+        String[] platformsSize = userProjectDto.getDescription().split("\n");
+        int projectsSize = platformsSize.length;
+        System.out.println("-----------"+projectsSize);
+        for (int j = 0; j < platformsSize.length; j++) {
+            if (platformsSize[j].length() > 19) {
+                int t = platformsSize[j].length() / 19;
+                projectsSize += t;
+                System.out.println("-----------"+projectsSize);
+            }
+        }
+
+        if (userProjectDto.getLanguages().split(",").length - 1 > projectsSize) {
+            projectsSize = userProjectDto.getLanguages().split(",").length - 1;
+            System.out.println("-----------"+projectsSize);
+        }
+        if (userProjectDto.getPlatforms().split(",").length - 1 > projectsSize) {
+            System.out.println("-----------"+projectsSize);
+            projectsSize = userProjectDto.getPlatforms().split(",").length - 1;
+        }
+        if (projectsSize > 4) {
+            addRowCount += projectsSize;
+        } else {
+            addRowCount += 4;
+        }
+
+        if (addRowCount > 9 * 4) {
+            if (addRowSumm == 0 || (addRowCount > 14 * 4 + addRowSumm)) {
+
+                addRowSumm = addRowCount;
+                myExcelSheet.removeRowsByIndex(getRow, 60);
+
+                int addSheetNum = addPageCount + 1;
+                odsFile.appendSheet(odsFile.getSheetByName("S"+addPageCount), "S" + addSheetNum);
+
+
+                myExcelSheet = odsFile.getSheetByName("S"+addPageCount);
+
+
+                getRow = 0;
+                addPageCount++;
+            }
+
+        }/*
+        System.out.println(myExcelSheet.getTableName());
+        System.out.println(getRow);
+        System.out.println(userProjectDto.getTitle());*/
+        //---ページをナビゲート
+        row = myExcelSheet.getRowByIndex(getRow);
+
+        System.out.println("-----------");
+
+        row.getCellByIndex(0).setStringValue(String.valueOf(i + 1));
+        row.getCellByIndex(47).setStringValue((userProjectDto.getStartedAt() + "/01").replaceAll("/", "-"));
+        row.getCellByIndex(5).setStringValue(userProjectDto.getTitle());
+        setContentCell(odsFile,29,row,userProjectDto.getPlatforms());
+        setContentCell(odsFile,37,row,userProjectDto.getLanguages());
+
+       /* for (int j = 0; j < userProjectDto.getProcesses().size(); j++) {
+            switch (userProjectDto.getProcesses().get(j).getCode()) {
+            case "BI":
+                row.getCellByIndex(20).setStringValue("●");
+                break;
+            case "BD":
+                row.getCellByIndex(21).setStringValue("●");
+                break;
+            case "FD":
+                row.getCellByIndex(22).setStringValue("●");
+                break;
+            case "DD":
+                row.getCellByIndex(23).setStringValue("●");
+                break;
+            case "MUT":
+                row.getCellByIndex(24).setStringValue("●");
+                break;
+            case "ST":
+                row.getCellByIndex(25).setStringValue("●");
+                break;
+            case "PT":
+                row.getCellByIndex(26).setStringValue("●");
+                break;
+            case "OP":
+                row.getCellByIndex(27).setStringValue("●");
+                break;
+            case "ETC":
+                row.getCellByIndex(28).setStringValue("●");
+                break;
+            default:
+                break;
+            }
+        }*/
+        row = myExcelSheet.getRowByIndex(getRow + 1);
+        row.getCellByIndex(47).setStringValue((userProjectDto.getFinishedAt() + "/01").replaceAll("/", "-"));
+        //row.getCellByIndex(5).setStringValue(userProjectDto.getDescription());
+        row.getCellByIndex(20).setStringValue(userProjectDto.getRoleCode());
+        row.getCellByIndex(26).setStringValue(String.valueOf(userProjectDto.getNumberOfMembers()));
+
+        row = myExcelSheet.getRowByIndex(getRow + 2);
+        row.getCellByIndex(47).setStringValue(userProjectDto.getDescription());
+
+        getRow += 4;
+        if (projectsSize > 4) {
+            System.out.println("-----------ww" + getRow);
+            myExcelSheet.getRowByIndex(getRow - 1).setHeight((projectsSize - 3) * 3.75, false);
+        }
+
+        if (i == userProjectDtoList.size() - 1) {
                 myExcelSheet.removeRowsByIndex(getRow, 60);
         }
 
-        for (int i = 0; i < userProjectDtoList.size(); i++) {
-            System.out.println(i);
-            UserProject userProjectDto = userProjectDtoList.get(i);
+    }
 
-            //PDFファイルでページを作って、ナビゲートする
-
-            String[] platformsSize = userProjectDto.getDescription().split("\n");
-            int projectsSize = platformsSize.length;
-            for (int j = 0; j < platformsSize.length; j++) {
-                if (platformsSize[j].length() > 19) {
-                    int t = platformsSize[j].getBytes().length / 19;
-                    projectsSize += t;
-                }
-            }
-
-            if (userProjectDto.getLanguages().split(",").length - 1 > projectsSize) {
-                projectsSize = userProjectDto.getLanguages().split(",").length - 1;
-            }
-            if (userProjectDto.getPlatforms().split(",").length - 1 > projectsSize) {
-                projectsSize = userProjectDto.getPlatforms().split(",").length - 1;
-            }
-            if (projectsSize > 4) {
-                addRowCount += projectsSize;
-            } else {
-                addRowCount += 4;
-            }
-
-            if (addRowCount > 9 * 4) {
-                if (addRowSumm == 0 || (addRowCount > 14 * 4 + addRowSumm)) {
-
-                    addRowSumm = addRowCount;
-                    System.out.println(getRow);
-                    if(getRow<58) {
-                    myExcelSheet.removeRowsByIndex(getRow, 60);
-                    }
-
-                    int addSheetNum = addPageCount + 1;
-                    odsFile.appendSheet(odsFile.getSheetByName("S"+addPageCount), "S" + addSheetNum);// .cloneSheet(1);
-
-                    myExcelSheet = odsFile.getSheetByName("S" + addPageCount);
-
-                    getRow = 0;
-                    addPageCount++;
-                }
-
-            }/*
-            System.out.println(myExcelSheet.getTableName());
-            System.out.println(getRow);
-            System.out.println(userProjectDto.getTitle());*/
-            //---ページをナビゲート
-            row = myExcelSheet.getRowByIndex(getRow);
-
-            row.getCellByIndex(0).setStringValue(String.valueOf(i + 1));
-            row.getCellByIndex(47).setStringValue((userProjectDto.getStartedAt() + "/01").replaceAll("/", "-"));
-            row.getCellByIndex(5).setStringValue(userProjectDto.getTitle());
-            setContentCell(odsFile,29,row,userProjectDto.getPlatforms());
-            setContentCell(odsFile,37,row,userProjectDto.getLanguages());
-
-           /* for (int j = 0; j < userProjectDto.getProcesses().size(); j++) {
-                switch (userProjectDto.getProcesses().get(j).getCode()) {
-                case "BI":
-                    row.getCellByIndex(20).setStringValue("●");
-                    break;
-                case "BD":
-                    row.getCellByIndex(21).setStringValue("●");
-                    break;
-                case "FD":
-                    row.getCellByIndex(22).setStringValue("●");
-                    break;
-                case "DD":
-                    row.getCellByIndex(23).setStringValue("●");
-                    break;
-                case "MUT":
-                    row.getCellByIndex(24).setStringValue("●");
-                    break;
-                case "ST":
-                    row.getCellByIndex(25).setStringValue("●");
-                    break;
-                case "PT":
-                    row.getCellByIndex(26).setStringValue("●");
-                    break;
-                case "OP":
-                    row.getCellByIndex(27).setStringValue("●");
-                    break;
-                case "ETC":
-                    row.getCellByIndex(28).setStringValue("●");
-                    break;
-                default:
-                    break;
-                }
-            }*/
-            row = myExcelSheet.getRowByIndex(getRow + 1);
-            row.getCellByIndex(47).setStringValue((userProjectDto.getFinishedAt() + "/01").replaceAll("/", "-"));
-
-            row.getCellByIndex(20).setStringValue(userProjectDto.getRoleCode());
-            row.getCellByIndex(26).setStringValue(String.valueOf(userProjectDto.getNumberOfMembers()));
-
-            row = myExcelSheet.getRowByIndex(getRow + 2);
-            row.getCellByIndex(47).setStringValue(userProjectDto.getDescription());
-
-            getRow += 4;
-            if (projectsSize > 4) {
-                System.out.println(getRow);
-                myExcelSheet.getRowByIndex(getRow - 1).setHeight((projectsSize - 3) * 3.75, false);
-                System.out.println("-----------");
-            }
-
-            if (i == userProjectDtoList.size() - 1) {
-                    myExcelSheet.removeRowsByIndex(getRow, 60);
-            }
-
-        }
-        odsFile.removeSheet(odsFile.getSheetCount()-1);
+    odsFile.removeSheet(odsFile.getSheetCount()-1);
 
         odsFile.save("test.ods");
 
