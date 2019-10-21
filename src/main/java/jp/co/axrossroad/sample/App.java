@@ -25,15 +25,13 @@ public class App {
         //myExcelSheet.removeRowsByIndex(getRow, 60);
         //odsFile.appendSheet(odsFile.getSheetByName("S0"), "test");
 
-       // myExcelSheet = odsFile.getSheetByName("S1");
-       // myExcelSheet.getCellRangeByPosition(0, 10, 0, 20).merge();
 
         ArrayList <UserProject> userProjectDtoList = new ArrayList <UserProject>();
 
         ////////////////////////////////////////////////////////
         userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "ああああああああああ", "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "あああああああああああああああああああ", "String processes", "N",
+        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ", "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
         userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "StrinStrinStrinStrinStrinStrinStrinStri", "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
@@ -178,13 +176,14 @@ public class App {
         }*/
         row = myExcelSheet.getRowByIndex(getRow + 1);
         row.getCellByIndex(47).setStringValue((userProjectDto.getFinishedAt() + "/01").replaceAll("/", "-"));
-        //row.getCellByIndex(5).setStringValue(userProjectDto.getDescription());
+        row.getCellByIndex(5).setFormula("=JIS(\""+userProjectDto.getDescription()+"\")");
         row.getCellByIndex(20).setStringValue(userProjectDto.getRoleCode());
         row.getCellByIndex(26).setStringValue(String.valueOf(userProjectDto.getNumberOfMembers()));
 
-        row = myExcelSheet.getRowByIndex(getRow + 2);
-        row.getCellByIndex(47).setStringValue(userProjectDto.getDescription());
+        //row = myExcelSheet.getRowByIndex(getRow + 2);
+        //row.getCellByIndex(47).setStringValue(userProjectDto.getDescription());
 
+        //myExcelSheet.getRowByIndex(getRow + 1).getCellByIndex(5).setFormula("=JIS("+userProjectDto.getDescription()+")");
         getRow += 4;
         if (projectsSize > 4) {
             System.out.println("-----------ww" + getRow);
