@@ -15,7 +15,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         System.out.println("start");
-       // File excelFile = File.createTempFile("skillsheet", ".ods");
+        // File excelFile = File.createTempFile("skillsheet", ".ods");
         SpreadsheetDocument odsFile = SpreadsheetDocument.loadDocument("template.ods");
         //Workbook myExcelBook = new XSSFWorkbook(new FileInputStream(file));
         Table myExcelSheet = odsFile.getSheetByName("技術経歴書");
@@ -25,51 +25,73 @@ public class App {
         //myExcelSheet.removeRowsByIndex(getRow, 60);
         //odsFile.appendSheet(odsFile.getSheetByName("S0"), "test");
 
-
-        ArrayList <UserProject> userProjectDtoList = new ArrayList <UserProject>();
+        ArrayList<UserProject> userProjectDtoList = new ArrayList<UserProject>();
 
         ////////////////////////////////////////////////////////
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "ああああああああああ", "String processes", "N",
+        userProjectDtoList
+                .add(new UserProject("2019/08", "2019/10", "String title", "ああああああああああ", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title",
+                "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
+                "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ", "String processes", "N",
+        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title",
+                "StrinStrinStrinStrinStrinStrinStrinStri", "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "StrinStrinStrinStrinStrinStrinStrinStri", "String processes", "N",
+        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "StringStringStringStringString",
+                "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "StringStringStringStringString", "String processes", "N",
+        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title",
+                "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
+                "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ", "String processes", "N",
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd,j,j,j,j", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,wｄ,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title",
+                "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
+                "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd,j,j,j,j", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "Stringssssadadasdadasdasdasdadsadsdsdadsadasdada descriptionStringssssadadasdadasdasdasdadsadsdsdadsadasdada descriptionStringssssadadasdadasdasdasdadsadsdsdadsadasdada descriptionStringssssadadasdadasdasdasdadsadsdsdadsadasdada descriptionStringssssadadasdadasdasdasdadsadsdsdadsadasdada description", "String processes", "N",
+        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title",
+                "Stringssssadadasdadasdasdasdadsadsdsdadsadasdada descriptionStringssssadadasdadasdasdasdadsadsdsdadsadasdada descriptionStringssssadadasdadasdasdasdadsadsdsdadsadasdada descriptionStringssssadadasdadasdasdasdadsadsdsdadsadasdada descriptionStringssssadadasdadasdasdasdadsadsdsdadsadasdada description",
+                "String processes", "N",
                 "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
 
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
-        userProjectDtoList.add(new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
-                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w,s,s,s,s,s,s"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w"));
+        userProjectDtoList.add(
+                new UserProject("2019/08", "2019/10", "String title", "String description", "String processes", "N",
+                        "String roleName", "3", "String,platforms,s,s,sd", "q,w,w,w,sdd,s,s,s,s,s"));
 
-////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
 
         int addRowCount = 0;
         int getRow = 23;
@@ -78,65 +100,60 @@ public class App {
 
         if (userProjectDtoList.size() == 0) {
             myExcelSheet.removeRowsByIndex(getRow, 60);
-    }
-
-    for (int i = 0; i < userProjectDtoList.size(); i++) {
-        UserProject userProjectDto = userProjectDtoList.get(i);
-
-        //PDFファイルでページを作って、ナビゲートする
-
-        String[] platformsSize = userProjectDto.getDescription().split("\n");
-        int projectsSize = platformsSize.length;
-        for (int j = 0; j < platformsSize.length; j++) {
-            if (platformsSize[j].length() > 20) {
-                int t = platformsSize[j].length() / 20;
-                projectsSize += t;
-            }
         }
 
-        if (userProjectDto.getLanguages().split(",").length - 1 > projectsSize) {
-            projectsSize = userProjectDto.getLanguages().split(",").length - 1;
-        }
-        if (userProjectDto.getPlatforms().split(",").length - 1 > projectsSize) {
-            projectsSize = userProjectDto.getPlatforms().split(",").length - 1;
-        }
-        if (projectsSize > 4) {
-            addRowCount += projectsSize;
-        } else {
-            addRowCount += 4;
-        }
+        for (int i = 0; i < userProjectDtoList.size(); i++) {
+            UserProject userProjectDto = userProjectDtoList.get(i);
 
-        if (addRowCount > 9 * 4) {
-            if (addRowSumm == 0 || (addRowCount > 14 * 4 + addRowSumm)) {
+            //PDFファイルでページを作って、ナビゲートする
 
-                addRowSumm = addRowCount;
-                myExcelSheet.removeRowsByIndex(getRow, 60);
-
-                int addSheetNum = addPageCount + 1;
-                odsFile.appendSheet(odsFile.getSheetByName("S"+addPageCount), "S" + addSheetNum);
-
-
-                myExcelSheet = odsFile.getSheetByName("S"+addPageCount);
-
-
-                getRow = 0;
-                addPageCount++;
+            String[] platformsSize = userProjectDto.getDescription().split("\n");
+            int projectsSize = platformsSize.length;
+            for (int j = 0; j < platformsSize.length; j++) {
+                if (platformsSize[j].length() > 20) {
+                    int t = platformsSize[j].length() / 20;
+                    projectsSize += t;
+                }
             }
 
-        }/*
-        System.out.println(myExcelSheet.getTableName());
-        System.out.println(getRow);
-        System.out.println(userProjectDto.getTitle());*/
-        //---ページをナビゲート
-        row = myExcelSheet.getRowByIndex(getRow);
+            if (userProjectDto.getLanguages().split(",").length - 1 > projectsSize) {
+                projectsSize = userProjectDto.getLanguages().split(",").length - 1;
+            }
+            if (userProjectDto.getPlatforms().split(",").length - 1 > projectsSize) {
+                projectsSize = userProjectDto.getPlatforms().split(",").length - 1;
+            }
+            if (projectsSize > 4) {
+                addRowCount += projectsSize;
+            } else {
+                addRowCount += 4;
+            }
 
-        row.getCellByIndex(0).setStringValue(String.valueOf(i + 1));
-        row.getCellByIndex(47).setStringValue((userProjectDto.getStartedAt() + "/01").replaceAll("/", "-"));
-        row.getCellByIndex(5).setStringValue(userProjectDto.getTitle());
-        setContentCell(odsFile,29,row,userProjectDto.getPlatforms());
-        setContentCell(odsFile,37,row,userProjectDto.getLanguages());
+            if (addRowCount > 9 * 4) {
+                if (addRowSumm == 0 || (addRowCount > 14 * 4 + addRowSumm)) {
 
-       /* for (int j = 0; j < userProjectDto.getProcesses().size(); j++) {
+                    addRowSumm = addRowCount;
+                    myExcelSheet.removeRowsByIndex(getRow, 60);
+
+                    int addSheetNum = addPageCount + 1;
+                    odsFile.appendSheet(odsFile.getSheetByName("S" + addPageCount), "S" + addSheetNum);
+
+                    myExcelSheet = odsFile.getSheetByName("S" + addPageCount);
+
+                    getRow = 0;
+                    addPageCount++;
+                }
+
+            }
+            //---ページをナビゲート
+            row = myExcelSheet.getRowByIndex(getRow);
+
+            row.getCellByIndex(0).setStringValue(String.valueOf(i + 1));
+            row.getCellByIndex(47).setStringValue((userProjectDto.getStartedAt() + "/01").replaceAll("/", "-"));
+            row.getCellByIndex(5).setStringValue(userProjectDto.getTitle());
+            setContentCell(odsFile, 29, row, userProjectDto.getPlatforms());
+            setContentCell(odsFile, 37, row, userProjectDto.getLanguages());
+
+            /* for (int j = 0; j < userProjectDto.getProcesses().size(); j++) {
             switch (userProjectDto.getProcesses().get(j).getCode()) {
             case "BI":
                 row.getCellByIndex(20).setStringValue("●");
@@ -168,29 +185,29 @@ public class App {
             default:
                 break;
             }
-        }*/
-        row = myExcelSheet.getRowByIndex(getRow + 1);
-        row.getCellByIndex(47).setStringValue((userProjectDto.getFinishedAt() + "/01").replaceAll("/", "-"));
-        row.getCellByIndex(5).setFormula("=JIS(\""+userProjectDto.getDescription()+"\")");
-        row.getCellByIndex(20).setStringValue(userProjectDto.getRoleCode());
-        row.getCellByIndex(26).setStringValue(String.valueOf(userProjectDto.getNumberOfMembers()));
+             }*/
+            row = myExcelSheet.getRowByIndex(getRow + 1);
+            row.getCellByIndex(47).setStringValue((userProjectDto.getFinishedAt() + "/01").replaceAll("/", "-"));
+            row.getCellByIndex(5).setFormula("=JIS(\"" + userProjectDto.getDescription() + "\")");
+            row.getCellByIndex(20).setStringValue(userProjectDto.getRoleCode());
+            row.getCellByIndex(26).setStringValue(String.valueOf(userProjectDto.getNumberOfMembers()));
 
-        //row = myExcelSheet.getRowByIndex(getRow + 2);
-        //row.getCellByIndex(47).setStringValue(userProjectDto.getDescription());
+            //row = myExcelSheet.getRowByIndex(getRow + 2);
+            //row.getCellByIndex(47).setStringValue(userProjectDto.getDescription());
 
-        //myExcelSheet.getRowByIndex(getRow + 1).getCellByIndex(5).setFormula("=JIS("+userProjectDto.getDescription()+")");
-        getRow += 4;
-        if (projectsSize > 4) {
-            myExcelSheet.getRowByIndex(getRow - 2).setHeight((projectsSize-3)*3.75, false);
-        }
+            //myExcelSheet.getRowByIndex(getRow + 1).getCellByIndex(5).setFormula("=JIS("+userProjectDto.getDescription()+")");
+            getRow += 4;
+            if (projectsSize > 4) {
+                myExcelSheet.getRowByIndex(getRow - 2).setHeight((projectsSize - 3) * 3.75, false);
+            }
 
-        if (i == userProjectDtoList.size() - 1) {
+            if (i == userProjectDtoList.size() - 1) {
                 myExcelSheet.removeRowsByIndex(getRow, 60);
+            }
+
         }
 
-    }
-
-    odsFile.removeSheet(odsFile.getSheetCount()-1);
+        odsFile.removeSheet(odsFile.getSheetCount() - 1);
 
         odsFile.save("test.ods");
 
@@ -198,7 +215,7 @@ public class App {
         System.out.println("finish");
     }
 
-    private static void setContentCell(SpreadsheetDocument odsFile, int cellNumber, Row row, String content ) {
+    private static void setContentCell(SpreadsheetDocument odsFile, int cellNumber, Row row, String content) {
         // reolace comma with enter
         String contentVertical = content.replace(",", "\n");
         Cell cell = row.getCellByIndex(cellNumber);
